@@ -32,7 +32,7 @@ $di->set(
     'view',
     function () {
         $view = new View();
-        $view->setViewsDir(Path::getAppPath() . 'views');
+        $view->setViewsDir(Path::getAppPath() . 'Views');
         return $view;
     }
 );
