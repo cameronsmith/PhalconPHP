@@ -1,18 +1,30 @@
 <?php
 
-use Phalcon\Loader;
+use CameronSmith\PhalconPHP\Helpers\Path;
+use Phalcon\Http\Request;
 
-define('BASE_PATH', dirname(__DIR__));
-define('APP_PATH', BASE_PATH . '/app');
+/**
+ * Load autoloader.
+ */
+require_once __DIR__ . '/../vendor/autoload.php';
 
+/**
+ * Set global path
+ */
+Path::setRootPath(dirname(__DIR__));
 
-$loader = new Loader();
+/**
+ * Bootstrap application.
+ */
+$application = require_once(Path::getRootPath() . 'bootstrap/app.php');
 
-$loader->registerDirs(
-    [
-        APP_PATH . '/controllers/',
-        APP_PATH . '/models/',
-    ]
-);
-
-$loader->register();
+/**
+ * Launch application.
+ */
+try {
+    $request = new Request();
+    $response = $application->handle($request->getURI());
+    $response->send();
+} catch (Exception $exception) {
+    echo 'Exception: ' . $exception->getMessage();
+}
