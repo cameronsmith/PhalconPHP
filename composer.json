@@ -1,0 +1,37 @@
+{
+  "name": "cameronsmith/phalcon-php",
+  "description": "The example project for phalcon php",
+  "keywords": [
+    "phalcon php",
+    "phalcon",
+    "cameronsmith"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Cameron Smith"
+    }
+  ],
+  "require": {
+
+  },
+  "repositories": [
+
+  ],
+  "support": {
+    "source": "https://github.com/cameronsmith/PhalconPHP"
+  },
+  "autoload": {
+    "psr-4": {
+      "CameronSmith\\PhalconPHP\\": "app/",
+      "CameronSmith\\PhalconPHP\\Test\\": "tests/"
+    }
+  },
+  "scripts": {
+    "phpcs": "./vendor/bin/phpcs"
+  },
+  "version": "0.0.1",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
+  }
+}
