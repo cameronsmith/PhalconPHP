@@ -16,7 +16,7 @@ services:
       - php
 
   php:
-      container_name: php
+      container_name: phalcon-php-fpm
       image: php:7.2-fpm
       volumes:
         - .:/usr/share/nginx/html
