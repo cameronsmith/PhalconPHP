@@ -10,12 +10,10 @@ use Phalcon\Mvc\Controller;
 class IndexController extends Controller
 {
     /**
-     * Index Route
-     *
      * @route /index
      */
     public function indexAction()
     {
-        // views/index/index.phtml
+        // render: views/index/index.phtml
     }
 }
