@@ -14,6 +14,7 @@ services:
       - phalcon-php-network
     links:
       - php
+      - db
 
   php:
       container_name: phalcon-php-fpm
@@ -25,6 +26,20 @@ services:
       build:
         context: .
         dockerfile: .docker/docker-php.dockerfile
+  db:
+      container_name: phalcon-php-db
+      image: mysql:8
+      command: --default-authentication-plugin=mysql_native_password
+      env_file:
+        - .env
+      environment:
+        - MYSQL_HOST=localhost
+        - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+        - MYSQL_DATABASE=${DB_DATABASE}
+        - MYSQL_USER=${DB_USER}
+        - MYSQL_PASSWORD=${DB_PASSWORD}
+      networks:
+        - phalcon-php-network
 networks:
   phalcon-php-network:
     driver: bridge
