@@ -1,15 +1,22 @@
 <?php
 
-use Phalcon\Loader;
+use Phalcon\Loader as PhalconLoader;
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\View;
 use Phalcon\Url as UrlProvider;
 use Phalcon\Mvc\Application;
 use CameronSmith\PhalconPHP\Helpers\Path;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Db\Adapter\Pdo\Mysql;
+use Dotenv\Dotenv;
 
-$loader = new Loader();
+/**
+ * Load environment file.
+ */
 
+(Dotenv::create(Path::getRootPath()))->load();
+
+$loader = new PhalconLoader();
 $loader->registerDirs(
     [
         Path::getAppPath() . 'Controllers/',
@@ -32,7 +39,7 @@ $di->set(
     'view',
     function () {
         $view = new View();
-        $view->setViewsDir(Path::getAppPath() . 'Views');
+        $view->setViewsDir(Path::getAppPath() . 'views');
         return $view;
     }
 );
@@ -56,6 +63,20 @@ $di->set(
         );
 
         return $dispatcher;
+    }
+);
+
+$di->set(
+    'db',
+    function () {
+        return new Mysql(
+            [
+                'host'     => '127.0.0.1',
+                'username' => getenv('DB_USER'),
+                'password' => getenv('DB_PASSWORD'),
+                'dbname'   => getenv('DB_DATABASE'),
+            ]
+        );
     }
 );
 

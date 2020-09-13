@@ -6,8 +6,18 @@ An example application built with the Phalcon PHP extension.
 To setup you local environment you must run the following command:
 
 ```bash
+cp .env.example .env 
 docker-compose up
-composer run install
+```
+
+Composer install:
+```bash
+docker exec -it phalcon-php-fpm composer install
+```
+
+Then run the DB migrations:
+```bash
+docker exec -it phalcon-php-fpm ./vendor/bin/phalcon migration run
 ```
 
 Once built the application is accessible at: [http://localhost:8080/](http://localhost:8080/)
