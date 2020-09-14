@@ -3,6 +3,7 @@ version: "3"
 services:
   nginx:
     container_name: phalcon-php-nginx
+    user: ${CURRENT_UID}
     build:
       context: .
       dockerfile: .docker/docker-nginx.dockerfile
@@ -19,6 +20,7 @@ services:
   php:
       container_name: phalcon-php-fpm
       image: php:7.2-fpm
+      user: ${CURRENT_UID}
       volumes:
         - .:/usr/share/nginx/html
       networks:
@@ -29,6 +31,7 @@ services:
   db:
       container_name: phalcon-php-db
       image: mysql:8
+      user: ${CURRENT_UID}
       command: --default-authentication-plugin=mysql_native_password
       env_file:
         - .env

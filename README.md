@@ -1,5 +1,6 @@
 # PhalconPHP
-An example application built with the Phalcon PHP extension.
+An example application built with the Phalcon PHP extension. Following the PhalconPHP tutorials at:
+[https://docs.phalcon.io/4.0/en/tutorial-basic](https://docs.phalcon.io/4.0/en/tutorial-basic)
 
 ### Local Setup
 

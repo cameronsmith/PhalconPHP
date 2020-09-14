@@ -71,7 +71,7 @@ $di->set(
     function () {
         return new Mysql(
             [
-                'host'     => '127.0.0.1',
+                'host'     => getenv('DB_HOST'),
                 'username' => getenv('DB_USER'),
                 'password' => getenv('DB_PASSWORD'),
                 'dbname'   => getenv('DB_DATABASE'),
