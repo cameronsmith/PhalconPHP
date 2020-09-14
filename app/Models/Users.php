@@ -3,6 +3,11 @@
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Email as EmailValidator;
 
+/**
+ * Class Users
+ *
+ * @package CameronSmith\PhalconPHP\Models
+ */
 class Users extends \Phalcon\Mvc\Model
 {
 
@@ -76,5 +81,4 @@ class Users extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-
 }

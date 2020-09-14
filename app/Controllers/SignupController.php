@@ -39,7 +39,7 @@ class SignupController extends Controller
         echo 'Sorry, the following problems were generated: ';
 
         $messages = $user->getMessages();
-        foreach($messages as $message) {
+        foreach ($messages as $message) {
             echo $message->getMessage() . '<br>';
         }
     }

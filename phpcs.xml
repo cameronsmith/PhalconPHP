@@ -11,6 +11,8 @@
     <rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing" />
     <rule ref="Squiz.Commenting.ClassComment.Missing" />
 
+    <exclude-pattern>/app/migrations/*</exclude-pattern>
+    <exclude-pattern>/app/config/*</exclude-pattern>
     <exclude-pattern>/vendor/*</exclude-pattern>
     <exclude-pattern>/tests/*</exclude-pattern>
     <file>.</file>
